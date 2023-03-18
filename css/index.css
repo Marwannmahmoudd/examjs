@@ -162,3 +162,17 @@ input::placeholder{
     transform: rotate(360deg);
   }
 }
+a{
+  border-radius: 20px;
+}
+a:hover{
+ outline: unset!important;
+}
+#anchor1:focus{
+border: 5px solid rgb(26, 111, 17);
+border-radius: 10px;
+}
+#anchor2:focus{
+  border: 5px solid rgb(147, 35, 35);
+  border-radius: 10px;
+  }
