@@ -116,8 +116,8 @@ let gr = ''
     <div><h3>Category : ${meal.strCategory}</h3></div>
     <div class"dsa "><h2>Recipes :<ul class="d-flex text-nowrap flex-wrap">${gr}</ul></h2></div>
     <div><h2>tags : <ul class="d-flex text-nowrap">${tag}</ul></h2></div>
-    <div><a target="_blank" href="${meal.strSource}" class="btn btn-success">Source</a>
-    <a target="_blank" href="${meal.strYoutube}" class="btn btn-danger">Youtube</a>
+    <div><a target="_blank" href="${meal.strSource}" class="btn btn-success" id="anchor1">Source</a>
+    <a target="_blank" href="${meal.strYoutube}" class="btn btn-danger" id="anchor2">Youtube</a>
     </div>
     </div>
     </div>
@@ -152,8 +152,9 @@ async function search2(name){
     $('.lds-roller').fadeIn(300)
     let api =await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`)
     let apijs  =await api.json()
+    $('.lds-roller').fadeOut(300)
      display(apijs.meals) 
-     $('.lds-roller').fadeOut(300)
+     
     }
 async function displaycategory(){
     document.getElementById('display').innerHTML= ""
@@ -165,7 +166,7 @@ async function displaycategory(){
     $('.lds-roller').fadeOut(300)
 }
 function displaycategory2(arr){
-    
+    document.getElementById('display2').innerHTML = ''
     let cartonna = ''
    for (let i = 0; i < arr.length; i++) {
     cartonna+=` <div class="col-md-3 ">
@@ -203,7 +204,7 @@ async function displayarea(){
     $('.lds-roller').fadeOut(300)
 }
 function displayarea2(arr){
-    
+    document.getElementById('display2').innerHTML = ''
     let cartonna = ''
    for (let i = 0; i < arr.length; i++) {
     cartonna+=` <div class="col-md-3 ">
@@ -238,10 +239,10 @@ async function displayingred(){
     $('.lds-roller').fadeOut(300)
 }
 function displayingred2(arr){
-    
+    document.getElementById('display2').innerHTML = ''
     let cartonna = ''
    for (let i = 0; i < arr.length; i++) {
-    cartonna+=` <div class="col-md-3 ">
+    cartonna+=` <div class="col-md-3 text-center">
         <div class="ss text-white " onclick ="displayingred3('${arr[i].strIngredient}')">
         <i class="fa-solid fa-drumstick-bite fa-4x"></i>
         <h3>${arr[i].strIngredient}</h3>
@@ -264,6 +265,7 @@ async function displayingred3(name){
     $('.lds-roller').fadeOut(300)
 }
 function contacct() {
+    document.getElementById('display2').innerHTML = ''
     document.getElementById('display').innerHTML = `<form><div class="contact min-vh-100 d-flex justify-content-center align-items-center">
     <div class="ee container w-75 text-center">
         <div class="row g-4">
